@@ -13,7 +13,7 @@ class MenusController < ApplicationController
   # GET /menus/1
   # GET /menus/1.json
   def show
-    
+    @dishes = Dish.all
   end
 
   # GET /menus/new
@@ -30,7 +30,7 @@ class MenusController < ApplicationController
   end
 
   def post_add
-    @ndish = Dish.find_by(name: params[:dishes][:name])
+    @ndish = Dish.find_by(id: params[:dishes][:id])
     if @ndish
       @menu.dishes << @ndish
       @menu.save

@@ -10,7 +10,9 @@
     <%= form.label :name %><br>
     <%= form.text_field :name %>
 </p>
-
+<p>
+    <%= form.select :id, @dishes.map { |d| [d.name,d.id]} %>
+</p>
 <p>
     <%= form.submit 'Add to Menu' %>
 </p>

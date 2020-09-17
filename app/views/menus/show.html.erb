@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @menu.name %>
+</p>
+<h4> Dishes</h4>
+<% @menu.dishes.each do |dish| %>
+  <%= dish.name %>  | <%= dish.price %>  |  <%= dish.cateogry%>   <button> <%= link_to "Remove dish", remove_dish_url(dish_id: dish.id), method: :delete, data: {confirm: "are you sure to remove this dish?"}  %> </button>
+<br/><br/>
+
+<%end%>
+<br>
+<%= link_to 'Edit', edit_menu_path(@menu) %> |
+<%= link_to 'Back', menus_path %> | 
+<% if current_user && current_user.admin %>
+  <button type="submit"> <%= link_to "Add dish", add_dish_url(@menu) %> </button> |
+<%end%>

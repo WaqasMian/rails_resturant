@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Menus</h1>
+
+
+<table border="1"> 
+  <thead>
+    <tr>
+      <th>Menu ID </th>
+      <th>Name</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @menus.each do |menu| %>
+      <tr>
+        <td><%= menu.id %></td>
+        <td><%= menu.name %></td>
+        <% if current_user && current_user.admin %>
+          <td><%= link_to 'Show', menu %></td>
+          <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
+          <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% elsif current_user %>
+          <td><%= link_to 'Show', menu %> </td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Menu', new_menu_path %>
+<button type="button" class="btn btn-danger"> <%= link_to 'Dishes Page', dishes_path, :style=>'color:white'%>  </button>
+ 

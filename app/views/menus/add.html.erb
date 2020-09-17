@@ -1,0 +1,18 @@
+<h3> Listing all possible dishes in our record </h3>
+
+<% @dishes.each do |dish|%>
+  <%=dish.id %> | <%= dish.name%>
+  <br/>
+<%end%>
+
+<%= form_with scope: :dishes, url:post_dish_path(@menu), local: true do |form| %>
+<p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+</p>
+
+<p>
+    <%= form.submit 'Add to Menu' %>
+</p>
+
+<%end%>

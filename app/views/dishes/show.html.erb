@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p style="color:gray;text-align:right;"> No of visits : <%= @count %> </p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dish.name %>
+</p>
+
+<p>
+  <strong>Cateogry:</strong>
+  <%= @dish.cateogry %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @dish.price %>
+</p>
+
+<p>
+  <strong> Menus: </strong>
+  <%@dish.menus.each do |menu| %>
+    <%=menu.name%> |
+  <%end%>
+</p>
+
+<%= link_to 'Edit', edit_dish_path(@dish) %> |
+<%= link_to 'Back', dishes_path %>
